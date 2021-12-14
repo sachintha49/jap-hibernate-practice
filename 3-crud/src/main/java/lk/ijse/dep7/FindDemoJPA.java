@@ -5,14 +5,12 @@ import lk.ijse.dep7.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class saveDemo {
+public class FindDemoJPA {
     public static void main(String[] args) {
         try (SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
              Session session = sessionFactory.openSession()) {
-            session.beginTransaction();
-            Student dulanga = new Student(1, "Dulanga", "Matale", "077-3447384");
-            session.save(dulanga);
-            session.getTransaction().commit();
+            Student student = session.find(Student.class, 2);
+            System.out.println(student);
         }
     }
 }

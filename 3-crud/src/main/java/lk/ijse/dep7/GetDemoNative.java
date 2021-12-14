@@ -5,14 +5,12 @@ import lk.ijse.dep7.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-public class persistDemo {
+public class GetDemoNative {
     public static void main(String[] args) {
         try (SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
              Session session = sessionFactory.openSession()) {
-            session.beginTransaction();
-            Student sachi = new Student(2, "Sachintha", "Kottawa", "077-2622642");
-            session.persist(sachi);
-            session.getTransaction().commit();
+            Student student = session.get(Student.class, 1);
+            System.out.println(student);
         }
     }
 }
