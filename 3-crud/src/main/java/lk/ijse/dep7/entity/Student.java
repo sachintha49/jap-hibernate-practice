@@ -10,8 +10,9 @@ public class Student implements Serializable {
     @Id
     private int id;
     private String name;
+    @Column(columnDefinition = "varchar(500)", nullable = false)
     private String address;
-    @Column(name = "contact_num")
+    @Column(name = "contact_num", nullable = false)
     private String contactNumber;
 
     public Student() {
