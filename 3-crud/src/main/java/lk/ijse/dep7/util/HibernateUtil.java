@@ -1,5 +1,6 @@
 package lk.ijse.dep7.util;
 
+import lk.ijse.dep7.entity.Student;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -16,6 +17,7 @@ private static SessionFactory sessionFactory = buildSessionFactory();
                 .build();
 
         Metadata metadata = new MetadataSources( standardRegistry )
+                .addAnnotatedClass(Student.class)
                 .getMetadataBuilder()
                 .applyImplicitNamingStrategy( ImplicitNamingStrategyJpaCompliantImpl.INSTANCE )
                 .build();
